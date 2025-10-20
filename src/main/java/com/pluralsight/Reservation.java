@@ -6,6 +6,17 @@ public class Reservation {
     private int numberOfNights;
     private boolean isWeekend;
 
+    public Reservation(String roomType, int numberOfNights, boolean isWeekend) {
+        this.roomType = roomType;
+        if (roomType.equalsIgnoreCase("king")) {
+            price = 139;
+        } else if (roomType.equalsIgnoreCase("double")) {
+            price = 124;
+        }
+        this.numberOfNights = numberOfNights;
+        this.isWeekend = isWeekend;
+    }
+
     public String getRoomType() {
         return roomType;
     }
@@ -31,16 +42,10 @@ public class Reservation {
     }
 
     public double getReservationTotal() {
-        if (roomType.equalsIgnoreCase("king")) {
-            price = 139;
-        } else if (roomType.equalsIgnoreCase("double")) {
-            price = 124;
-        }
-
         double roomTotal = numberOfNights * price;
 
         if (isWeekend) {
-            roomTotal = roomTotal * 1.1;
+            roomTotal *= 1.1;
         }
 
         return roomTotal;
