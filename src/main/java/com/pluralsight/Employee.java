@@ -35,11 +35,11 @@ public class Employee {
         if (hoursWorked <= 40) {
             return hoursWorked;
         }
-        return 0;
+        return 40;
     }
 
     public double getOvertimeHours() {
-        if (hoursWorked >= 40)
+        if (hoursWorked > 40)
             return hoursWorked - 40;
         return 0;
     }
