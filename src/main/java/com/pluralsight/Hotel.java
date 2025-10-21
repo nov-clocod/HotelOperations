@@ -52,6 +52,10 @@ public class Hotel {
     }
 
     public boolean bookRoom(int numberOfRooms, boolean isSuite) {
+        if (numberOfRooms <= 0) {
+            return false;
+        }
+
         if (isSuite) {
             if (numberOfRooms <= getAvailableSuites()) {
                 bookedSuites += numberOfRooms;
