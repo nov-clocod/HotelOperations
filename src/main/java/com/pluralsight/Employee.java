@@ -55,4 +55,9 @@ public class Employee {
             return hoursWorked - 40;
         return 0;
     }
+
+    public void punchTimeCard(double startTime, double endTime) {
+        double employeeHoursWorked = endTime - startTime;
+        hoursWorked += employeeHoursWorked;
+    }
 }
