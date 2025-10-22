@@ -3,6 +3,7 @@ package com.pluralsight;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+//Exercise 1 create Employee class with gettors
 public class Employee {
     private int employeeId;
     private String name;
@@ -11,11 +12,11 @@ public class Employee {
     private double hoursWorked;
     private double startTime;
 
-    public Employee(int employeeId, String name, String department, double hoursWorked, double payRate) {
+    public Employee(int employeeId, String name, String department, double payRate) {
         this.employeeId = employeeId;
         this.name = name;
         this.department = department;
-        this.hoursWorked = hoursWorked;
+        this.hoursWorked = 0;
         this.payRate = payRate;
         this.startTime = 0;
     }
@@ -40,6 +41,7 @@ public class Employee {
         return hoursWorked;
     }
 
+    //Exercise 1 derived getoors
     public double getTotalPay () {
         if (hoursWorked <= 40) {
             return payRate * hoursWorked;
@@ -61,13 +63,9 @@ public class Employee {
         return 0;
     }
 
+    //Exercise 2 create punch in and punch out with double time parameter
     public void punchIn(double time) {
         startTime = time;
-    }
-
-    public void punchIn() {
-        double minuteConversion = LocalDateTime.now().getMinute() / 60.0;
-        startTime = LocalDateTime.now().getHour() + minuteConversion;
     }
 
     public void punchOut(double time) {
@@ -76,13 +74,7 @@ public class Employee {
         startTime = 0;
     }
 
-    public void punchOut() {
-        double minuteConversion = LocalDateTime.now().getMinute() / 60.0;
-        double timeWorked = LocalDateTime.now().getHour() + minuteConversion - startTime;
-        hoursWorked += timeWorked;
-        startTime = 0;
-    }
-
+    //Exercise 2 bonus combining punchin and punchout
     public void punchTimeCard(double time) {
         if (startTime == 0) {
             startTime = time;
@@ -92,4 +84,18 @@ public class Employee {
             startTime = 0;
         }
     }
+
+    //Exercise 3 overloading punch in and punch out using LocalDateTime
+    public void punchIn() {
+        double minuteConversion = LocalDateTime.now().getMinute() / 60.0;
+        startTime = LocalDateTime.now().getHour() + minuteConversion;
+    }
+
+    public void punchOut() {
+        double minuteConversion = LocalDateTime.now().getMinute() / 60.0;
+        double timeWorked = LocalDateTime.now().getHour() + minuteConversion - startTime;
+        hoursWorked += timeWorked;
+        startTime = 0;
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+//Exercise 1 create Reservation class with gettors and settors
 public class Reservation {
     private String roomType;
     private double price;
@@ -41,6 +42,7 @@ public class Reservation {
         return isWeekend;
     }
 
+    //Exercise 1 derived gettor
     public double getReservationTotal() {
         double roomTotal = numberOfNights * price;
 

@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+//Exercise 3 create Hotel class with 2 constructors
 public class Hotel {
     private String name;
     private int numberOfSuites;
@@ -43,6 +44,7 @@ public class Hotel {
         return bookedBasicRooms;
     }
 
+    //Exercise 3 derived gettors and bookroom method
     public int getAvailableSuites() {
         return numberOfSuites - bookedSuites;
     }

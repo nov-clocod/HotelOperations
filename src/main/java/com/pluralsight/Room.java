@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+//Exercise 1 create Room class with gettors
 public class Room {
     private int numberOfBeds;
     private double price;
@@ -33,6 +34,7 @@ public class Room {
         return !isOccupied && !isDirty;
     }
 
+    //Exercise 2 create checkin, checkout, cleanroom
     public void checkIn() {
         if (isAvailable()) {
         isOccupied = true;
